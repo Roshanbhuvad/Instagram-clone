@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en-US">
+<html lang="en-US">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -8,29 +8,26 @@
 
 	<title>Welcome to Instagram</title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-	<link rel="shortcut icon" href="https://lh3.googleusercontent.com/MpnmfR3zYPTojA03QbhGgwIHucmH5s4G2vbIlADYhODL488MQt_BuVztv9LYmJbhwkScYN0DIXuh4d10YMsLbWXT">
+	<!-- <link rel="shortcut icon" href="https://lh3.googleusercontent.com/MpnmfR3zYPTojA03QbhGgwIHucmH5s4G2vbIlADYhODL488MQt_BuVztv9LYmJbhwkScYN0DIXuh4d10YMsLbWXT">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
-	<link rel="stylesheet" href="https://cdn.turbo360-dev.com/admin/assets/scaffold/css/style.min.css" />
+	<link rel="stylesheet" href="https://cdn.turbo360-dev.com/admin/assets/scaffold/css/style.min.css" />  -->
 </head>
 
 <body>
-	<!-- <div id="root"></div> -->
 	<div class="container">
-		<h1>Instagram clone</h1>
+		<h1>{{graphql.user.full_name}}</h1>
 		<div class="row"> 
+
+		{{#graphql.user.edge_owner_to_timeline_media.edges}}
 		<div class="col-md-4">
-		<h2>Column 1 </h2>
+			<img src="{{node.thumbnail_src}}"/>
 		</div>
-		<div class="col-md-4">
-		<h2>Column 2 </h2>
-		</div>
-		<div class="col-md-4">
-		<h2>Column 3 </h2>
-		</div>
+		{{/graphql.user.edge_owner_to_timeline_media.edges}}
+		
+
 		</div>
 	</div>
-	
 	
 </body>
 </html>
