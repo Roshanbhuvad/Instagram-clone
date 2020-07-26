@@ -11,10 +11,11 @@
     "postinstall": "turbo postinstall"
   },
   "dependencies": {
-    "turbo360": "^1.8.69",
-    "vertex360": "^0.29.12",
     "express": "^4.17.1",
-    "serve-static": "1.13.2"
+    "serve-static": "1.13.2",
+    "superagent": "^5.3.1",
+    "turbo360": "^1.8.69",
+    "vertex360": "^0.29.12"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
