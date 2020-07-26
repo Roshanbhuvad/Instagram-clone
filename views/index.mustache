@@ -8,17 +8,39 @@
 
 	<title>Welcome to Instagram</title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-	<link rel="shortcut icon" href="https://lh3.googleusercontent.com/MpnmfR3zYPTojA03QbhGgwIHucmH5s4G2vbIlADYhODL488MQt_BuVztv9LYmJbhwkScYN0DIXuh4d10YMsLbWXT">
+	<!--<link rel="shortcut icon" href="https://lh3.googleusercontent.com/MpnmfR3zYPTojA03QbhGgwIHucmH5s4G2vbIlADYhODL488MQt_BuVztv9LYmJbhwkScYN0DIXuh4d10YMsLbWXT">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
-	<link rel="stylesheet" href="https://cdn.turbo360-dev.com/admin/assets/scaffold/css/style.min.css" /> 
+	<link rel="stylesheet" href="https://cdn.turbo360-dev.com/admin/assets/scaffold/css/style.min.css" /> -->
 </head>
 
-<body>
+<body style="background:#f9f9f9">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<h1>{{graphql.user.full_name}}</h1>
+				<div class="row">
+					<div class="col-md-4">
+						<img style="border-radius:50%;border:1px solid #ededed;" src="{{graphql.user.profile_pic_url}}">
+
+					</div>
+					<div class="col-md-8">
+						<h1 style="font-size:32px;line-height:40px;font-weight:200;">{{graphql.user.username}}</h1>
+						<div class="row">
+							<div class="col-md-3">
+								<span>392 posts</span>	
+							</div>
+							<div class="col-md-3">
+								<span>1,025 followers</span>
+							</div>
+							<div class="col-md-3">
+								<span>769 following</span>
+							</div>
+						</div>
+						<div class="row">
+						
+						</div>
+				</div>
+			</div>
 				<div class="row">
 					{{#graphql.user.edge_owner_to_timeline_media.edges}}
 					<div class="col-md-4">
