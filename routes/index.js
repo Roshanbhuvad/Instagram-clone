@@ -21,10 +21,14 @@ router.get("/:username", (req, res) => {
     .set("Accept", "application/json")
     .end((err, response) => {
       if (err) {
-        res.json({
+        const data = {
+          message: err.message || "Check you Spelling!",
+        };
+        res.render("error", data);
+        /*res.json({
           confirmation: "fail",
           message: err.message,
-        });
+        }); */
         return;
       }
       res.render("index", response.body);
@@ -34,4 +38,6 @@ router.get("/:username", (req, res) => {
       }); */
     });
 });
+
+router.get("/p/:post", (req, res) => {});
 module.exports = router;
