@@ -57,13 +57,28 @@ router.get("/:username/:postcode", (req, res) => {
         res.render("error", data);
         return;
       }
-      res.render("index", response.body);
+
+      const posts =
+        response.body.graphql.user.edge_owner_to_timeline_media.edges;
+      let selectedPost = null;
+      for (let i = 0; i < posts.length; i++) {
+        const post = posts[i];
+        if (post.node.shortcode == postcode) {
+          selectedPost = post;
+          break;
+        }
+      }
+      //res.render("index", response.body);
+      res.json({
+        confirmation: "success",
+        data: selectedPost,
+      });
     });
 
-  res.json({
+  /*res.json({
     confirmation: "success",
     postcode: postcode,
     username: username,
-  });
+  }); */
 });
 module.exports = router;
