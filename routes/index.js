@@ -39,5 +39,31 @@ router.get("/:username", (req, res) => {
     });
 });
 
-router.get("/p/:post", (req, res) => {});
+router.get("/:username/:postcode", (req, res) => {
+  const username = req.params.username;
+  const postcode = req.params.postcode;
+
+  const instagramAPI = "https://www.instagram.com/" + username + "/?__a=1";
+
+  superagent
+    .get(instagramAPI)
+    .query(null)
+    .set("Accept", "application/json")
+    .end((err, response) => {
+      if (err) {
+        const data = {
+          message: err.message || "Check you Spelling!",
+        };
+        res.render("error", data);
+        return;
+      }
+      res.render("index", response.body);
+    });
+
+  res.json({
+    confirmation: "success",
+    postcode: postcode,
+    username: username,
+  });
+});
 module.exports = router;
