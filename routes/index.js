@@ -57,9 +57,8 @@ router.get("/:username/:postcode", (req, res) => {
         res.render("error", data);
         return;
       }
-
-      const posts =
-        response.body.graphql.user.edge_owner_to_timeline_media.edges;
+      const user = response.body.graphql.user;
+      const posts = user.edge_owner_to_timeline_media.edges;
       let selectedPost = null;
       for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
@@ -72,6 +71,10 @@ router.get("/:username/:postcode", (req, res) => {
         res.render("error", { message: "Post not found!" });
         return;
       }
+      selectedPost["user"] = {
+        username: user.username,
+        icon: user.profile_pic_url,
+      };
       res.render("post", selectedPost);
       /*res.json({
         confirmation: "success",

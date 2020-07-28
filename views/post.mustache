@@ -36,10 +36,18 @@
             margin-top: 24px;
         }
         .post-container img {
-            max-width: 400px;
+            max-width: 100%;
         }
 		.search-container {
 			padding: 12px;
+		}
+		.post-detail {
+			padding: 24px 24px 24px 0px;
+		}
+		.post-detail img {
+			width: 40px;
+			border-radius: 50%;
+			margin-right:12px;
 		}
 	</style>
 	<link rel="shortcut icon" href="https://lh3.googleusercontent.com/MpnmfR3zYPTojA03QbhGgwIHucmH5s4G2vbIlADYhODL488MQt_BuVztv9LYmJbhwkScYN0DIXuh4d10YMsLbWXT">
@@ -72,15 +80,25 @@
 	<div class="container main">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
+                <div class="post-container">
 				<div class="row">
-					<div class="col-md-8">
-                        <div class="post-container">
-                            <img src="{{node.display_url}}" /> 
-                        </div>
+					<div class="col-md-7">
+						 <img src="{{node.display_url}}" /> 
+
+					</div>
+					<div class="col-md-5">
+						<div class="post-detail">
+						<p>
+							<img src="{{user.icon}}" />	
+							<strong>{{user.username}}</strong>					
+						</p>
+						<hr />
+						</div>
+						
+					</div>
 				</div>
+                </div>
 			</div>
-				
-		</div> 
 		</div>
 	</div>
 	
