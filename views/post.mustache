@@ -48,6 +48,7 @@
 			width: 40px;
 			border-radius: 50%;
 			margin-right:12px;
+			border: 1px solid #ededed
 		}
 	</style>
 	<link rel="shortcut icon" href="https://lh3.googleusercontent.com/MpnmfR3zYPTojA03QbhGgwIHucmH5s4G2vbIlADYhODL488MQt_BuVztv9LYmJbhwkScYN0DIXuh4d10YMsLbWXT">
@@ -93,6 +94,17 @@
 							<strong>{{user.username}}</strong>					
 						</p>
 						<hr />
+						<p>
+							 {{node.accessibility_caption}}
+							 <!-- {{node.edge_media_to_caption.edges.node.text}}	-->
+						</p>
+						<hr />
+						<div style="text-align:right;">
+							<strong>{{node.edge_liked_by.count}}</strong> <span>likes</span>
+							<span style="margin-left:16px;margin-right:16px;">|</span>
+							<strong>{{node.edge_media_to_comment.count}}</strong> <span>comments</span><br />
+						</div>
+						
 						</div>
 						
 					</div>

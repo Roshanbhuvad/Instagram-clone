@@ -59,6 +59,7 @@ router.get("/:username/:postcode", (req, res) => {
       }
       const user = response.body.graphql.user;
       const posts = user.edge_owner_to_timeline_media.edges;
+      //const caption =user.edge_owner_to_timeline_media.edges.node.edge_media_to_caption.edges.node;
       let selectedPost = null;
       for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
@@ -74,6 +75,7 @@ router.get("/:username/:postcode", (req, res) => {
       selectedPost["user"] = {
         username: user.username,
         icon: user.profile_pic_url,
+        //caption: caption.text,
       };
       res.render("post", selectedPost);
       /*res.json({

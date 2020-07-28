@@ -11,6 +11,7 @@
     "postinstall": "turbo postinstall"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
     "express": "^4.17.1",
     "serve-static": "1.13.2",
     "superagent": "^5.3.1",
