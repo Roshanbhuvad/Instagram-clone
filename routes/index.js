@@ -6,11 +6,28 @@ const router = express.Router();
 const utils = require("./utils");
 
 router.get("/", (req, res) => {
-  const data = {
+  /*const data = {
     text: "Instagram Clone!",
     greeting: "Welcome !",
-  };
-  res.render("index", data);
+  };*/
+  const username = req.params.username;
+  const instagramAPI = "https://www.instagram.com/" + username + "/?__a=1";
+  obj = {};
+  utils.HTTP.get(instagramAPI, null)
+    .then((data) => {
+      res.render("main", data);
+    })
+    .catch((err) => {
+      const data = {
+        message: err.message || "Check you Spelling!",
+      };
+      res.render("error", data);
+    });
+  //console.log('body: '+ JSON.stringify(req.body));
+  //res.header("Content-type", "application/json");
+  //res.header("Charset", "utf-8");
+  //res.send(req.query.callback + "(" + JSON.stringify(obj) + ");");
+  //res.render("index", data);
 });
 
 router.get("/:username", (req, res) => {

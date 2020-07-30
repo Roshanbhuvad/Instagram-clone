@@ -18,7 +18,7 @@ module.exports = {
           message: err.message,
         }); */
           resolve(response.body);
-          // res.render("index", response.body);
+          //res.render("index", response.body);
         });
     });
   },
